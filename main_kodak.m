@@ -62,7 +62,7 @@ A = [c,d;e,1];
 m = inv(A)*(n-T);
 p = [a4, a3, a2, 0, a0];
 M = [m(1,:) ; m(2,:) ; polyval(p,sqrt(m(1,:).^2+m(2,:).^2)) ];
-M = normc(M)*1000;
+M = normc(M);
 
 % Plot normalized points
 x=M(1,1:1:end);
