@@ -109,7 +109,7 @@ for i=1:length(M) %this loop should be vectorized
     if(tf(3,i)>0) %ignore points behind camera
         pixel = P(:,i);
         w = pixel(3);
-        u = round(pixel(1)/w);
+        u = round(pixel(1)/w); %must normalize homogenous coordinates
         v = round(pixel(2)/w);
         if(u>0 && v>0 && u<=640 && v<=480)
             img(v,u,1) = J(i,1);
