@@ -33,7 +33,8 @@ clear all; close all; clc;
 
 %% Compute Mapping from Image to Unit Sphere
 % Parameters from Matlab Toolbox (code is above)
-load('blackfly_matlab_results.mat');
+% load('blackfly_matlab_results.mat');
+load('calibration_blackfly_matlab.mat');
 nrows = params.Intrinsics.ImageSize(1);
 ncols = params.Intrinsics.ImageSize(2);
 a0 = params.Intrinsics.MappingCoefficients(1);
@@ -94,13 +95,14 @@ zlabel('z');
 
 %% Reproject to Perspective Image (using Logitech c920 parameters)
 %load intrinsic parameters
-load('logitech_c920_calibration_640x480.mat');
+% load('logitech_c920_calibration_640x480.mat');
+load('calibration_logitech_c920_640x480.mat');
 K = cameraParams.IntrinsicMatrix'; %transpose due to matlab convention
 
 %choose orientation for perspective camera
 thetax = -75*pi/180;
 thetay = 0*pi/180;
-thetaz = 45*pi/180;
+thetaz = 90*pi/180;
 Rx = [1,0,0;0,cos(thetax),-sin(thetax);0,sin(thetax),cos(thetax)];
 Ry = [cos(thetay),0,sin(thetay);0,1,0;-sin(thetay),0,cos(thetay)];
 Rz = [cos(thetaz),-sin(thetaz),0;sin(thetaz),cos(thetaz),0;0,0,1];
