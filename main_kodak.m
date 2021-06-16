@@ -38,7 +38,7 @@ clear all; close all; clc;
 
 %% Compute Mapping from Image to Unit Sphere
 % Parameters from Matlab Toolbox (code is above)
-load('kodak_matlab_results.mat');
+load('calibration_kodak_matlab.mat');
 nrows = params.Intrinsics.ImageSize(1);
 ncols = params.Intrinsics.ImageSize(2);
 a0 = params.Intrinsics.MappingCoefficients(1);
@@ -90,7 +90,7 @@ zlabel('z');
 
 %% Reproject to Perspective Image (using Logitech c920 parameters)
 %load intrinsic parameters
-load('logitech_c920_calibration_640x480.mat');
+load('calibration_logitech_c920_640x480.mat');
 K = cameraParams.IntrinsicMatrix'; %transpose due to matlab convention
 
 %choose orientation for perspective camera
